@@ -7,6 +7,7 @@ using System.Web.Routing;
 using System.Web.Security;
 using System.Web.SessionState;
 using System.Web.Http;
+using AntDemoWeb.Common;
 
 namespace AntDemoWeb
 {
@@ -14,6 +15,8 @@ namespace AntDemoWeb
     {
         void Application_Start(object sender, EventArgs e)
         {
+            Logger.Init();
+
             // Code that runs on application startup
             AreaRegistration.RegisterAllAreas();
             GlobalConfiguration.Configure(WebApiConfig.Register);
