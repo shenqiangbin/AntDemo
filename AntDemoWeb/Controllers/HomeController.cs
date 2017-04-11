@@ -9,9 +9,7 @@ namespace AntDemoWeb.Controllers
     public class HomeController : Controller
     {
         public ActionResult Index()
-        {
-            int j = 0;
-            var r = 1 / j;
+        {        
             return View();
         }
 
