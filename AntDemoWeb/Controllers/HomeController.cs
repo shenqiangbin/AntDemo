@@ -13,5 +13,10 @@ namespace AntDemoWeb.Controllers
         {
             return View();
         }
+
+        public ActionResult Record()
+        {
+            return View();
+        }
     }
 }
