@@ -6,16 +6,20 @@ using System.Web.Mvc;
 
 namespace AntDemoWeb.Controllers
 {
-    public class HomeController : Controller
+    public class ErrorsController : Controller
     {
+        // GET: Errors
         public ActionResult Index()
         {
-            int j = 0;
-            var r = 1 / j;
             return View();
         }
 
-        public ActionResult Record()
+        public ActionResult Error403()
+        {
+            return View();
+        }
+
+        public ActionResult Error404()
         {
             return View();
         }
