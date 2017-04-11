@@ -4,7 +4,13 @@
     ViewBag.CurrentNav = 1;
 }
 
-<h2>@ViewBag.Title</h2>
+<style>
+    .Q {
+        color:red;
+    }
+</style>
+
+<h4>@ViewBag.Title</h4>
 
 <ol>
     <li>使用VS2015创建空的Web项目，勾选 WEB API 和 MVC </li>
@@ -12,4 +18,13 @@
     <li>添加导航，且当前导航高亮</li>
     <li>使用Log4net，来记录日志（这里将日志记录到了文件，随着系统的增加，可以将日志全部记录到一个库中，这样后期可以进行分析。）</li>
     <li>添加错误提示页（500页面、404页面）</li>
+    <li>数据库层使用SQLite，SQLite初探，写一个初始化数据库的功能。</li>
 </ol>
+
+<div>
+    <h4>碰到的问题</h4>
+    <div class="Q">无法加载 DLL“sqlite3”: 找不到指定的模块。 (异常来自 HRESULT:0x8007007E)。</div>
+    <div>将项目Lib目录下的sqlite3.dll拷贝到项目的bin目录下面</div>
+    <div class="Q">Unable to open the database file</div>  
+    <div>在 SQLiteHelper 文件中的 Data Source=d:/AntDemoWeb.db3 的数据库文件路径是绝对路径就可以了。</div>  
+</div>

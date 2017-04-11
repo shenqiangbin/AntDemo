@@ -17,5 +17,10 @@ namespace AntDemoWeb.Controllers
         {
             return View();
         }
+
+        public ActionResult Mgr()
+        {
+            return View();
+        }
     }
 }

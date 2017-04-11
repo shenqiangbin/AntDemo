@@ -1,0 +1,52 @@
+﻿
+@{
+    ViewBag.Title = "管理";
+    ViewBag.CurrentNav = 2;
+}
+
+<h2></h2>
+
+<button id="initDB" class="btn btn-default">初始化库</button>
+
+<p></p>
+
+<div id="msg" class="alert alert-info hidden">
+    <a href="#" class="close" data-dismiss="alert">
+        &times;
+    </a>
+    <span>消息</span>
+</div>
+
+@section foot{
+    <script>
+        
+        function showMsg(msg) {
+            $("#msg").addClass('alert-info');
+            $("#msg").removeClass('alert-danger');
+            $("#msg").removeClass('hidden');
+            $("#msg span").html(msg);           
+        }
+
+        function showDanger(msg) {
+            $("#msg").addClass('alert-danger');
+            $("#msg").removeClass('alert-info');
+            $("#msg").removeClass('hidden');
+            $("#msg span").html(msg);
+        }
+                
+        $(function () {
+            $("#initDB").click(function () {
+                $.get('/api/sys/initdb', function (result) {
+                    if (result.code == 1) {
+                        showMsg("数据库初始化成功");
+                    } else {
+                        showDanger(result.msg);
+                    }
+                });
+            });
+        });
+
+
+    </script>
+}
+

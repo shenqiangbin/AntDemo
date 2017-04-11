@@ -23,6 +23,7 @@
                 <ul class="nav navbar-nav">
                     <li @(ViewBag.CurrentNav == 0 ? "class=active" : "")><a href="/home/index">示例</a></li>
                     <li @(ViewBag.CurrentNav == 1 ? "class=active" : "")><a href="/home/record">记录</a></li>
+                    <li @(ViewBag.CurrentNav == 2 ? "class=active" : "")><a href="/home/mgr">管理</a></li>
                 </ul>
             </div>
         </div>
@@ -38,5 +39,7 @@
 
     <script src="~/Scripts/jquery-1.10.2.min.js"></script>
     <script src="~/Scripts/bootstrap.min.js"></script>
+
+    @RenderSection("foot", false)
 </body>
 </html>
