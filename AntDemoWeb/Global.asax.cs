@@ -16,6 +16,7 @@ namespace AntDemoWeb
         void Application_Start(object sender, EventArgs e)
         {
             Logger.Init();
+            AutofacHelper.Inject();
 
             // Code that runs on application startup
             AreaRegistration.RegisterAllAreas();

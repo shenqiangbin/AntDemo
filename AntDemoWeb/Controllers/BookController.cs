@@ -12,9 +12,9 @@ namespace AntDemoWeb.Controllers
     {
         private BookService bookService;
 
-        public BookController()
+        public BookController(BookService bookService)
         {
-            bookService = new BookService();
+            this.bookService = bookService;
         }
 
         public ActionResult Index()

@@ -11,9 +11,9 @@ namespace AntDemoWeb.Service
     {
         private BookRepository bookRepository;
 
-        public BookService()
+        public BookService(BookRepository bookingRepository)
         {
-            bookRepository = new BookRepository();
+            bookRepository = bookingRepository;
         }
 
         public int AddBook(Book book)
