@@ -7,12 +7,16 @@
 
 <div>bookId：@ViewBag.BookId</div>
 
+<div id="msg"></div>
 <form action="/Book/AddBook" method="post" enctype="multipart/form-data">
     图书名称:<input type="text" name="bookName" id="bookName" />
+    <span id="bookNameMsg"></span>
     <br />
     图书描述:<input type="text" name="bookDesc" id="bookDesc" />
+    <span id="bookDescMsg"></span>
     <br />
     选择文件：<input type="file" name="file" id="fileInput" />
+    <span id="fileInputMsg"></span>
     <br />
-    <input type="button" value="保存" />
+    <input id="btnSave" type="button" value="保存" />
 </form>

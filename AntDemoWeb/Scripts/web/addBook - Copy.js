@@ -1,26 +1,35 @@
 ﻿(
     function ($) {
         var msg = $('#msg');
-
-        var bookName = $('#bookName');
-        var bookNameMsg = $("#bookNameMsg");
-        var bookDesc = $("#bookDesc");
-        var bookDescMsg = $("#bookDescMsg");
-        var fileInput = $("#fileInput");
-        var fileInputMsg = $("#fileInputMsg");
-
-        var btnSave = $("#btnSave");
+        var websiteName = $('#bookName');
+        var websiteNameMsg = $('#WebsiteNameMsg');
+        var websiteUrl = $('#bookDesc');
+        var websiteUrlMsg = $('#WebsiteUrlMsg');
+        var connectPerson = $('#ConnectPerson');
+        var connectPersonMsg = $('#ConnectPersonMsg');
+        var connectTel = $('#ConnectTel');
+        var connectTelMsg = $('#ConnectTelMsg');
+        var connectQQ = $('#ConnectQQ');
+        var connectQQMsg = $('#ConnectQQMsg');
+        var websiteIntroduction = $('#WebsiteIntroduction');
+        var websiteIntroductionMsg = $('#WebsiteIntroductionMsg');
 
         $.feggplant = {
-            init: function () {                
-                bookName.Blur(bookNameBlur());
-                btnSave.click(submit);
+            init: function () {
+                websiteName.blur(websiteNameBlur);
+                websiteUrl.blur(websiteUrlBlur);
+                connectPerson.blur(connectPersonBlur);
+                connectTel.blur(connectTelBlur);
+                connectQQ.blur(connectQQBlur);
+                websiteIntroduction.blur(websiteIntroductionBlur);
+
+                $('#btnSave').click(submit);
             }
         };
 
-        bookNameBlur = function () {
-            if (!bookName.val() || bookName.val().trim() == '') {
-                bookNameMsg.removeClass('newhide');
+        websiteNameBlur = function () {
+            if (!websiteName.val() || websiteName.val().trim() == '') {
+                websiteNameMsg.removeClass('newhide');
                 websiteNameMsg.html('网站名称不能为空');
                 return false;
             }
