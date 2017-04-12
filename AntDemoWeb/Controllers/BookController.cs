@@ -25,7 +25,8 @@ namespace AntDemoWeb.Controllers
         public ActionResult AddBook()
         {
             Book model = NewBook();
-            bookService.AddBook(model);
+            var bookId = bookService.AddBook(model);
+            ViewBag.BookId = bookId;
             return View();
         }
 
