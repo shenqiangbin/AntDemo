@@ -28,7 +28,19 @@ namespace AntDemoWeb.Service
                         lastTryTime datetime,
                         retryCount integer
                     );
-                ";
+
+                    --图书表
+                    DROP TABLE IF EXISTS T_Books;
+                    CREATE TABLE T_Books(
+                        id integer primary key,
+                        bookName nvarchar(50),
+                        bookPath varchar(100),
+                        convertStatus int, -- 转换状态 0：未开始 1：进行中 2：已完成 3：失败
+                        swfPath varchar(100),
+                        uploadTime datetime,
+                        deleteFlag int--删除标识，1 已删除
+                    );
+            ";
         }
 
     }
