@@ -30,9 +30,9 @@ namespace AntDemoWeb.Service
                     );
 
                     --图书表
-                    DROP TABLE IF EXISTS T_Books;
-                    CREATE TABLE T_Books(
-                        id integer primary key,
+                    DROP TABLE IF EXISTS Book;
+                    CREATE TABLE Book(
+                        id integer primary key autoincrement not null,
                         bookName nvarchar(50),
                         bookPath varchar(100),
                         convertStatus int, -- 转换状态 0：未开始 1：进行中 2：已完成 3：失败
