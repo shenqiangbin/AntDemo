@@ -21,5 +21,10 @@ namespace AntDemoWeb.Service
             var bookId = bookRepository.Add(book);
             return bookId;
         }
+
+        public string GetUploadFilePath()
+        {
+            return "/PDF";
+        }
     }
 }

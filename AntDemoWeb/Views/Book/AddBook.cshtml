@@ -1,8 +1,18 @@
 ﻿
 @{
-    ViewBag.Title = "AddBook";
+    ViewBag.Title = "上传书籍";
 }
 
-<h2>AddBook</h2>
+<h2>@ViewBag.Title</h2>
 
 <div>bookId：@ViewBag.BookId</div>
+
+<form action="/Book/AddBook" method="post" enctype="multipart/form-data">
+    图书名称:<input type="text" name="bookName" id="bookName" />
+    <br />
+    图书描述:<input type="text" name="bookDesc" id="bookDesc" />
+    <br />
+    选择文件：<input type="file" name="file" id="fileInput" />
+    <br />
+    <input type="button" value="保存" />
+</form>

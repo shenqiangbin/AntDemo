@@ -132,6 +132,7 @@
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\web\addBook.js" />
     <Content Include="Web.config" />
     <Content Include="Views\Home\Record.cshtml" />
   </ItemGroup>
@@ -140,6 +141,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Common\AutofacHelper.cs" />
     <Compile Include="Common\Logger.cs" />
+    <Compile Include="Common\ValidateException.cs" />
     <Compile Include="Controllers\BookController.cs" />
     <Compile Include="Controllers\ErrorsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -155,6 +157,8 @@
     <Compile Include="Repository\SQLiteHelper.cs" />
     <Compile Include="Service\BookService.cs" />
     <Compile Include="Service\SysMgr.cs" />
+    <Compile Include="ViewModels\BookAddModel.cs" />
+    <Compile Include="ViewModels\BookListModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
