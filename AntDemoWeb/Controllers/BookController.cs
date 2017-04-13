@@ -4,7 +4,9 @@ using AntDemoWeb.Service;
 using AntDemoWeb.ViewModels;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 
@@ -30,7 +32,7 @@ namespace AntDemoWeb.Controllers
         }
 
         [HttpPost]
-        public JsonResult AddBook(BookAddModel addModel)
+        public ActionResult AddBook(BookAddModel addModel)
         {
             try
             {
@@ -39,22 +41,38 @@ namespace AntDemoWeb.Controllers
                 Book model = NewBook();
 
                 model.BookName = addModel.BookName;
-                model.BookPath = bookService.GetUploadFilePath();
+                model.BookPath = bookService.GetUploadFilePath(addModel.File.FileName);
+
+                //保存文件（注：这里使用Task.Run的异步形式并不管用，还是必须在文件保存成功之后，前台界面才会有响应。）
+                var fileSavePath = Server.MapPath(model.BookPath);
+                addModel.File.SaveAs(fileSavePath);
+
+                //StreamReader sr = new StreamReader(addModel.File.InputStream, System.Text.Encoding.Default);
+                //while (!sr.EndOfStream) {
+                //   var s = sr.ReadLine();
+                //}
+
                 model.ConvertStatus = Enum.ConvertStatusEnum.UnStart;
                 model.DeleteFlag = Enum.DeleteFlagEnum.UnDeleted;
                 model.UploadTime = DateTime.Now;
 
                 var bookId = bookService.AddBook(model);
                 ViewBag.BookId = bookId;
-                return Json(new { code = 1 });
+                //return Json(new { code = 1 });
+                ViewBag.Msg = "上传成功";
+                return View();
             }
             catch (ValidateException ex)
             {
-                return Json(new { code = ex.Code, msg = ex.Message });
+                ViewBag.Msg = ex.Message;
+                //return Json(new { code = ex.Code, msg = ex.Message });
+                return View();
             }
             catch (Exception ex)
             {
-                return Json(new { code = 0, msg = ex.Message });
+                ViewBag.Msg = ex.Message;
+                //return Json(new { code = 0, msg = ex.Message });
+                return View();
             }
 
         }
@@ -77,5 +95,6 @@ namespace AntDemoWeb.Controllers
 
             return book;
         }
+
     }
 }

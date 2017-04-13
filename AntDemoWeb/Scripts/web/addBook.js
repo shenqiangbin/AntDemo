@@ -82,17 +82,18 @@
                 return;
             }
 
-            var data = $('form').serializeArray();
-            console.log(data);
-            $.post('/Book/AddBook', data, function (result) {
-                if (result.code == 1) {
-                    showMsg("保存成功");
-                } else {
-                    showDanger(result.msg);
-                    btnSave.removeAttr('disabled');
-                    btnSave.val('保存');
-                }                            
-            });
+            $('form').submit();
+            //var data = $('form').serialize();
+            //console.log(data);
+            //$.post('/Book/AddBook', data, function (result) {
+            //    if (result.code == 1) {
+            //        showMsg("保存成功");
+            //    } else {
+            //        showDanger(result.msg);
+            //        btnSave.removeAttr('disabled');
+            //        btnSave.val('保存');
+            //    }                            
+            //});
 
         };       
     }

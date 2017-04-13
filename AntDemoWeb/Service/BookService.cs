@@ -22,9 +22,9 @@ namespace AntDemoWeb.Service
             return bookId;
         }
 
-        public string GetUploadFilePath()
+        public string GetUploadFilePath(string fileName)
         {
-            return "/PDF";
+            return  "/PDF/" + fileName;
         }
     }
 }
