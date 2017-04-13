@@ -3,7 +3,11 @@
     ViewBag.Title = "上传书籍";
 }
 
-<h2>@ViewBag.Title</h2>
+<style>
+    
+</style>
+
+<div style="font-weight:bold;font-family:宋体;font-size:20px;padding: 10px 0px;">@ViewBag.Title</div>
 
 <div id="msg" class="alert alert-info hidden">
     <a href="#" class="close" onclick="$('#msg').addClass('hidden');">
@@ -13,16 +17,21 @@
 </div>
 
 <form action="/Book/AddBook" method="post" enctype="multipart/form-data">
-    图书名称:<input type="text" name="bookName" id="bookName" />
-    <span id="bookNameMsg" class="hidden">图书错误信息</span>
-    <br />
-    图书描述:<input type="text" name="bookDesc" id="bookDesc" />
-    <span id="bookDescMsg" class="hidden">图书错误信息</span>
-    <br />
-    选择文件：<input type="file" name="file" id="fileInput" />
-    <span id="fileInputMsg" class="hidden">文件错误信息</span>
-    <br />
-    <input id="btnSave" type="button" value="保存" />
+    <p>
+        图书名称:<input type="text" name="bookName" id="bookName" />
+        <span id="bookNameMsg" class="hidden">图书错误信息</span>       
+    </p>
+   <p>
+       图书描述:<input type="text" name="bookDesc" id="bookDesc" />
+       <span id="bookDescMsg" class="hidden">图书错误信息</span>
+   </p>
+    <p>
+        选择文件：<input type="file" name="file" id="fileInput" />
+        <span id="fileInputMsg" class="hidden">文件错误信息</span>
+    </p>
+    <p>
+        <input id="btnSave" type="button" value="保存" />
+    </p>
 </form>
 
 @section foot{
