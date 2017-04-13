@@ -42,22 +42,15 @@ namespace AntDemoWeb.Controllers
 
                 model.BookName = addModel.BookName;
                 model.BookPath = bookService.GetUploadFilePath(addModel.File.FileName);
-
-                //保存文件（注：这里使用Task.Run的异步形式并不管用，还是必须在文件保存成功之后，前台界面才会有响应。）
-                var fileSavePath = Server.MapPath(model.BookPath);
-                addModel.File.SaveAs(fileSavePath);
-
-                //StreamReader sr = new StreamReader(addModel.File.InputStream, System.Text.Encoding.Default);
-                //while (!sr.EndOfStream) {
-                //   var s = sr.ReadLine();
-                //}
-
                 model.ConvertStatus = Enum.ConvertStatusEnum.UnStart;
                 model.DeleteFlag = Enum.DeleteFlagEnum.UnDeleted;
                 model.UploadTime = DateTime.Now;
 
                 var bookId = bookService.AddBook(model);
                 ViewBag.BookId = bookId;
+
+                SaveFileToDisk(addModel, model);
+
                 //return Json(new { code = 1 });
                 ViewBag.Msg = "上传成功";
                 return View();
@@ -75,6 +68,19 @@ namespace AntDemoWeb.Controllers
                 return View();
             }
 
+        }
+
+        private void SaveFileToDisk(BookAddModel addModel, Book model)
+        {
+
+            //保存文件（注：这里使用Task.Run的异步形式并不管用，还是必须在文件保存成功之后，前台界面才会有响应。）
+            var fileSavePath = Server.MapPath(model.BookPath);
+            addModel.File.SaveAs(fileSavePath);
+
+            //StreamReader sr = new StreamReader(addModel.File.InputStream, System.Text.Encoding.Default);
+            //while (!sr.EndOfStream) {
+            //   var s = sr.ReadLine();
+            //}
         }
 
         private void ValidateAddBookModel(BookAddModel addModel)
@@ -96,5 +102,10 @@ namespace AntDemoWeb.Controllers
             return book;
         }
 
+        public ActionResult Test()
+        {
+            PdfConvertor.AddTask(Guid.NewGuid().ToString());
+            return Content(DateTime.Now.ToString());
+        }
     }
 }

@@ -142,6 +142,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Common\AutofacHelper.cs" />
     <Compile Include="Common\Logger.cs" />
+    <Compile Include="Common\PdfConvertor.cs" />
     <Compile Include="Common\ValidateException.cs" />
     <Compile Include="Controllers\BookController.cs" />
     <Compile Include="Controllers\ErrorsController.cs" />
