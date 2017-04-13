@@ -5,18 +5,26 @@
 
 <h2>@ViewBag.Title</h2>
 
-<div>bookId：@ViewBag.BookId</div>
+<div id="msg" class="alert alert-info hidden">
+    <a href="#" class="close" onclick="$('#msg').addClass('hidden');">
+        &times;
+    </a>
+    <span>消息</span>
+</div>
 
-<div id="msg"></div>
 <form action="/Book/AddBook" method="post" enctype="multipart/form-data">
     图书名称:<input type="text" name="bookName" id="bookName" />
-    <span id="bookNameMsg"></span>
+    <span id="bookNameMsg" class="hidden">图书错误信息</span>
     <br />
     图书描述:<input type="text" name="bookDesc" id="bookDesc" />
-    <span id="bookDescMsg"></span>
+    <span id="bookDescMsg" class="hidden">图书错误信息</span>
     <br />
     选择文件：<input type="file" name="file" id="fileInput" />
-    <span id="fileInputMsg"></span>
+    <span id="fileInputMsg" class="hidden">文件错误信息</span>
     <br />
     <input id="btnSave" type="button" value="保存" />
 </form>
+
+@section foot{
+    <script src="~/Scripts/web/addBook.js"></script>
+}
