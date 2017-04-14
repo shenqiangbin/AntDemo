@@ -141,6 +141,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Common\AutofacHelper.cs" />
+    <Compile Include="Common\CmdHelper.cs" />
     <Compile Include="Common\Logger.cs" />
     <Compile Include="Common\PdfConvertor.cs" />
     <Compile Include="Common\ValidateException.cs" />
@@ -188,6 +189,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="pdfView\xpdf\" />
     <Folder Include="PDF\" />
   </ItemGroup>
   <PropertyGroup>

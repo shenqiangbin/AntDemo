@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using AntDemoWeb.Enum;
 
 namespace AntDemoWeb.Service
 {
@@ -22,9 +23,19 @@ namespace AntDemoWeb.Service
             return bookId;
         }
 
-        public string GetUploadFilePath(string fileName)
+        public string GetUploadDir()
         {
-            return  "/PDF/" + fileName;
+            return "/PDF/";
+        }
+
+        public string GetSWFDir()
+        {
+            return "/SWF/";
+        }
+
+        public void UpdateBookConvertStatus(int id, ConvertStatusEnum status)
+        {
+            bookRepository.UpdateBookConvertStatus(id, status);
         }
     }
 }
