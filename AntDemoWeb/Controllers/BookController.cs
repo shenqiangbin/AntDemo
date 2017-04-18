@@ -125,6 +125,10 @@ namespace AntDemoWeb.Controllers
             if (!System.IO.File.Exists(cmdStr))
                 throw new Exception("请安装pdf2swf");
 
+            //创建对应pdf文件和swf文件的保存目录
+            System.IO.Directory.CreateDirectory(Path.GetDirectoryName(Server.MapPath(pdfPath)));
+            System.IO.Directory.CreateDirectory(Path.GetDirectoryName(Server.MapPath(swfPath)));
+
             string args = BuildAgrs(Server.MapPath(pdfPath), Server.MapPath(swfPath));
             string result = CmdHelper.ExecutCmd(cmdStr, args);
             Logger.Log(result);
