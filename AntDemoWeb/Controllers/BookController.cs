@@ -46,12 +46,12 @@ namespace AntDemoWeb.Controllers
                 model.BookName = addModel.BookName;
 
                 string pdfDir = bookService.GetUploadDir();
-                Directory.CreateDirectory(pdfDir);
+                //Directory.CreateDirectory(pdfDir);
                 model.BookPath = pdfDir + addModel.File.FileName;
 
-                string saveDir = Server.MapPath(bookService.GetSWFDir());
-                Directory.CreateDirectory(saveDir);
-                model.SwfPath = saveDir + $"/{Guid.NewGuid().ToString().Replace("-", "")}.swf";
+                string saveDir = bookService.GetSWFDir();
+                //Directory.CreateDirectory(saveDir);
+                model.SwfPath = saveDir + $"{Guid.NewGuid().ToString().Replace("-", "")}.swf";
 
                 model.ConvertStatus = Enum.ConvertStatusEnum.UnStart;
                 model.DeleteFlag = Enum.DeleteFlagEnum.UnDeleted;
@@ -126,6 +126,7 @@ namespace AntDemoWeb.Controllers
 
             string args = BuildAgrs(Server.MapPath(pdfPath), Server.MapPath(swfPath));
             string result = CmdHelper.ExecutCmd(cmdStr, args);
+            Logger.Log(result);
         }
 
         //转换文件-构建转换参数
