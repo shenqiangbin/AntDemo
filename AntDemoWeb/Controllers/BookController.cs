@@ -65,6 +65,7 @@ namespace AntDemoWeb.Controllers
                 {
                     try
                     {
+                        bookService.UpdateBookConvertStatus(bookId, ConvertStatusEnum.Converting);
                         ConvertPdfToSWF(model.BookPath, model.SwfPath);
                         bookService.UpdateBookConvertStatus(bookId, ConvertStatusEnum.Finished);
                     }
